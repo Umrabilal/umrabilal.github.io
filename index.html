@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Ahmad - Data Science & ML Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .ml-playground {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .ml-playground h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .prediction-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slider-container label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        .prediction-result {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <header>
+        <div class="container">
+            <h1>🤖 Bilal Ahmad</h1>
+            <p class="tagline">Data Science & Machine Learning Specialist</p>
+            <p style="opacity: 0.9; margin-bottom: 30px;">Transforming Data into Intelligent Solutions</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Hire Me Now</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>🎯 About Me</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; color: #555;">
+                Hi! I'm Bilal Ahmad, a certified Data Scientist and Machine Learning specialist with hands-on experience in building predictive models and extracting actionable insights from complex datasets. With a strong foundation from my internship and continuous learning, I help businesses leverage AI and ML to solve real-world problems.
+            </p>
+            <p style="font-size: 1.1em; line-height: 1.8; color: #555; margin-top: 15px;">
+                I have successfully completed projects including Titanic survival prediction, spam email filtering, and heart disease prediction using the UCI dataset. Currently available for freelance projects on Fiverr, Upwork, and Freelancer. Let's turn your data into your competitive advantage!
+            </p>
+        </section>
+
+        <section class="section" id="projects">
+            <h2>🚀 Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🚢 Titanic Survival Prediction</h3>
+                    <p>Built a machine learning model to predict passenger survival with high accuracy using classification algorithms. Analyzed passenger demographics and extracted key survival factors.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Classification</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>📧 Spam Email Filter</h3>
+                    <p>Developed an intelligent spam detection system using NLP and machine learning techniques. Achieved excellent precision in filtering unwanted emails.</p>
+                    <div class="project-tags">
+                        <span class="tag">NLP</span>
+                        <span class="tag">Text Mining</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">Feature Engineering</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>❤️ Heart Disease Prediction</h3>
+                    <p>Created a predictive model using UCI heart disease dataset to identify patients at risk. Applied advanced data preprocessing and model optimization techniques.</p>
+                    <div class="project-tags">
+                        <span class="tag">Healthcare ML</span>
+                        <span class="tag">Predictive Analytics</span>
+                        <span class="tag">Data Preprocessing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💪 Skills & Technologies</h2>
+            <div class="skills-container">
+                <div class="skill-badge">🐍 Python</div>
+                <div class="skill-badge">🤖 Machine Learning</div>
+                <div class="skill-badge">🧠 Deep Learning</div>
+                <div class="skill-badge">📊 Data Analysis</div>
+                <div class="skill-badge">📈 Scikit-learn</div>
+                <div class="skill-badge">🐼 Pandas</div>
+                <div class="skill-badge">🔢 NumPy</div>
+                <div class="skill-badge">📉 Matplotlib</div>
+                <div class="skill-badge">🎨 Seaborn</div>
+                <div class="skill-badge">💾 SQL</div>
+                <div class="skill-badge">📝 NLP</div>
+                <div class="skill-badge">🔍 Feature Engineering</div>
+                <div class="skill-badge">📊 Data Visualization</div>
+                <div class="skill-badge">🎯 Model Optimization</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎮 Interactive ML Demo</h2>
+            <p style="margin-bottom: 20px; color: #555;">Try this simple prediction demo! Adjust the sliders and see machine learning in action.</p>
+            
+            <div class="ml-playground">
+                <h3>Simple Prediction Simulator</h3>
+                <div class="prediction-demo">
+                    <div class="slider-container">
+                        <label>Feature 1: <span id="val1">50</span></label>
+                        <input type="range" id="feature1" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-container">
+                        <label>Feature 2: <span id="val2">50</span></label>
+                        <input type="range" id="feature2" min="0" max="100" value="50">
+                    </div>
+                    <div class="slider-container">
+                        <label>Feature 3: <span id="val3">50</span></label>
+                        <input type="range" id="feature3" min="0" max="100" value="50">
+                    </div>
+                    <div class="prediction-result" id="result">
+                        Prediction Score: 50
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>📞 Let's Work Together!</h2>
+            <p style="text-align: center; font-size: 1.1em; color: #555; margin-bottom: 30px;">
+                Ready to leverage data science and AI for your business? I'm available for freelance projects and consultations. Get in touch!
+            </p>
+            
+            <div class="contact-card">
+                <h3>📬 Contact Information</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span style="font-size: 1.5em;">👤</span>
+                        <span><strong>Name:</strong> Bilal Ahmad</span>
+                    </div>
+                    <div class="contact-item">
+                        <span style="font-size: 1.5em;">📧</span>
+                        <span><strong>Email:</strong> <a href="mailto:umrabilal2012@gmail.com">umrabilal2012@gmail.com</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span style="font-size: 1.5em;">📱</span>
+                        <span><strong>Phone:</strong> <a href="tel:+923339593492">+92 333 9593492</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span style="font-size: 1.5em;">🌐</span>
+                        <span><strong>WhatsApp:</strong> <a href="https://wa.me/923339593492" target="_blank">Message on WhatsApp</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.fiverr.com/s/xX9ALY4" class="social-link" target="_blank">🟢 Fiverr</a>
+                <a href="https://www.upwork.com/freelancers/~017d1ad01f76b53aee" class="social-link" target="_blank">💼 Upwork</a>
+                <a href="https://www.freelancer.com/u/bilalahmad" class="social-link" target="_blank">🌐 Freelancer</a>
+                <a href="https://www.linkedin.com/in/bilal-ahmad-ml" class="social-link" target="_blank">🔗 LinkedIn</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Bilal Ahmad - Data Science & ML Specialist</p>
+        <p style="margin-top: 10px; opacity: 0.8;">📧 umrabilal2012@gmail.com | 📱 +92 333 9593492</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Turning Data into Insights, One Model at a Time 🚀</p>
+    </footer>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Interactive ML Demo
+        const feature1 = document.getElementById('feature1');
+        const feature2 = document.getElementById('feature2');
+        const feature3 = document.getElementById('feature3');
+        const result = document.getElementById('result');
+        const val1 = document.getElementById('val1');
+        const val2 = document.getElementById('val2');
+        const val3 = document.getElementById('val3');
+
+        function updatePrediction() {
+            const f1 = parseInt(feature1.value);
+            const f2 = parseInt(feature2.value);
+            const f3 = parseInt(feature3.value);
+            
+            val1.textContent = f1;
+            val2.textContent = f2;
+            val3.textContent = f3;
+            
+            // Simple weighted prediction simulation
+            const prediction = Math.round((f1 * 0.4 + f2 * 0.35 + f3 * 0.25));
+            
+            result.textContent = `Prediction Score: ${prediction}`;
+            
+            // Change color based on prediction
+            if (prediction > 70) {
+                result.style.color = '#22c55e';
+                result.style.borderColor = '#22c55e';
+            } else if (prediction > 40) {
+                result.style.color = '#f59e0b';
+                result.style.borderColor = '#f59e0b';
+            } else {
+                result.style.color = '#ef4444';
+                result.style.borderColor = '#ef4444';
+            }
+        }
+
+        feature1.addEventListener('input', updatePrediction);
+        feature2.addEventListener('input', updatePrediction);
+        feature3.addEventListener('input', updatePrediction);
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
