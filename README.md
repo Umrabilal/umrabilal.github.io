@@ -20,13 +20,14 @@ I'm self-taught in technology since 2003, starting from a net café in Peshawar 
 
 I have shipped a flagship AI education tool used by real users, built and deployed a school management system for a live client, launched a working PWA for a local business, and completed technical ML projects that anchor my data science depth. Currently available for freelance projects on Fiverr, Upwork, and Freelancer.
 
-#Featured Projects
-
-##Lesson Assistant (Flagship Product)
+# Featured Projects
+### 📚 Lesson Assistant (Flagship Product)
 
 An AI-powered app (Streamlit + Gemini API) that generates Urdu explanations and YouTube scripts from any topic input. Deployed publicly and actively used — my proof piece for AI product building, not just modeling.
 
 Streamlit Gemini API Python Product Deployment
+
+[🔗 Try Lesson Assistant](https://bilal-education-app.streamlit.app)
 
 ### Beacon Garden School — Website & School Management System
 
