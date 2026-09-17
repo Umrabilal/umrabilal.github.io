@@ -1,7 +1,7 @@
 Bilal Ahmad - AI Product Builder & Data Scientist
 
 
-#Bilal Ahmad
+###      -Bilal Ahmad-
 
 AI Product Builder | Data Science & ML Specialist
 
@@ -11,9 +11,10 @@ Hire Me Now
 
 View My Work
 
-#About Me
+#  About Me
 
 Hi/Assalamualaikum!
+
 I'm Bilal Ahmad an AI product builder based in Peshawar, Pakistan, with 17 years of experience in data operations, IT infrastructure, and database management. Unlike a pure ML researcher, my focus is building and shipping working AI products — from idea to live deployment.
 
 I'm self-taught in technology since 2003, starting from a net café in Peshawar — I built my entire early skillset on a mobile phone before I ever owned a laptop. That background shapes how I build practical, resourceful, and focused on getting real things into real users' hands.
